@@ -12,7 +12,7 @@ public class SpawnManager : MonoBehaviour
     public void Start()
     {
       //  SpawnCorrectItem();
-        SpawnAll();
+      
         
     }
 
@@ -55,6 +55,6 @@ public class SpawnManager : MonoBehaviour
     {
         Vector3 randomPos = Random.insideUnitSphere;
         randomPos.y = 1;
-        return randomPos * 1f;
+        return randomPos * 1.3f;
     }
 }

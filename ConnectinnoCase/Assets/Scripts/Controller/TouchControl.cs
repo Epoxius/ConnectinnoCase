@@ -6,8 +6,6 @@ public class TouchControl : MonoBehaviour
 {
 
    float doubleClickTime = 0.5f;
-
-// Time of last mouse button down event
    float lastMouseDownTime = 0;
    public int clickCount;
 
@@ -32,7 +30,6 @@ public class TouchControl : MonoBehaviour
             {
                if (Time.time - lastMouseDownTime <= doubleClickTime)
                {
-                  hitInfo.transform.DOJump(new Vector3(pan.transform.position.x,pan.transform.position.y+1,pan.transform.position.z), 1, 1, 1);
                }
 
                

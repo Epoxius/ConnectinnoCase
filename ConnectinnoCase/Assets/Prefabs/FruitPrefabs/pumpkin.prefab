@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 6161213960726061737}
   - component: {fileID: 6161213960727060585}
   - component: {fileID: 7980063641348923576}
-  - component: {fileID: 5482520051672027626}
   - component: {fileID: -8887661370264270549}
+  - component: {fileID: -3497098405070643956}
   m_Layer: 0
   m_Name: pumpkin
   m_TagString: Fruit
@@ -99,22 +99,9 @@ Rigidbody:
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 2
   m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!65 &5482520051672027626
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6161213960729329321}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.42775244, y: 0.41778243, z: 0.44976538}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_CollisionDetection: 1
 --- !u!114 &-8887661370264270549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,3 +114,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 127a63eeb34444343ae615fa8ba5beb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isChoosen: 0
+  itemRb: {fileID: 7980063641348923576}
+--- !u!64 &-3497098405070643956
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6161213960729329321}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: e0104657a83d1374b8e7cda818970954, type: 3}
