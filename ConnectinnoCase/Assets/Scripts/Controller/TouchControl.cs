@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using UnityEngine;
 
 public class TouchControl : MonoBehaviour
@@ -24,12 +25,14 @@ public class TouchControl : MonoBehaviour
          
          RaycastHit hitInfo = new RaycastHit();
          bool hit = Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hitInfo);
-         if (hit) 
+         if (hit)
          {
+            var pan = GameManager.Instance.pan;
             if (hitInfo.transform.gameObject.CompareTag("Fruit"))
             {
                if (Time.time - lastMouseDownTime <= doubleClickTime)
                {
+                  hitInfo.transform.DOJump(new Vector3(pan.transform.position.x,pan.transform.position.y+1,pan.transform.position.z), 1, 1, 1);
                }
 
                
