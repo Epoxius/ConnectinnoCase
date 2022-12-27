@@ -1,30 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 
 public class CorrectCheckController : MonoBehaviour
 {
     public bool isCorrect;
-    public void Check()
+    public void Check(FruitType type)
     {
-        var levelData = GameManager.Instance.levelData;
-        var levelCount = GameManager.Instance.levelManager._levelCount;
-        for (int i = 0; i < levelData.levelData[levelCount].WaveDatas.Count; i++)
+        var fruit = GameManager.Instance.levelManager.fruitCounts.FirstOrDefault(x => x.fruitType == type);
+        if (fruit)
         {
-            if (transform.name ==levelData.levelData[levelCount].WaveDatas[i].fruitName.ToString())
-            {
-                levelData.levelData[levelCount].WaveDatas[i].correctItemCount--;
-                isCorrect = true;
-                Debug.Log(isCorrect);
-            }
-            else
-            {
-                // transform.DOScale(Vector3.one / 1.5f, 1);
-                // itemRb.isKinematic = true;
-                isCorrect = false;
-                Debug.Log(isCorrect);
-            }
+            isCorrect = true;
+            Debug.LogError(isCorrect);
+        }
+        else
+        {
+            isCorrect = false;
+            Debug.LogError(isCorrect);
         }
     }
 }

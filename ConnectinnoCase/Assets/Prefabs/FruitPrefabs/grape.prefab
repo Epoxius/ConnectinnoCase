@@ -118,6 +118,7 @@ MonoBehaviour:
   correctCheckController: {fileID: 6922674416558086330}
   isChoosen: 0
   itemRb: {fileID: 1651042693128581885}
+  fruitType: 4
 --- !u!64 &1175232045871074231
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -4454,6 +4454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelCount: 0
+  fruitCounts: []
 --- !u!4 &925051162
 Transform:
   m_ObjectHideFlags: 0
@@ -4964,7 +4965,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 3a8e6381fb16fa6408d923dcb6a7b258, type: 3}
   - {fileID: 21300000, guid: bdd154bece41cdc47a4f33343a5cc4c8, type: 3}
   - {fileID: 21300000, guid: 697cf3d3bd4643f439f36bfe8fe45687, type: 3}
-  fruitSpriteObj: {fileID: 3428304069874519317, guid: 9b3585725c8975c45912a2e90ce9f8d4,
+  fruitSpriteObj: {fileID: -6049537369946110101, guid: 9b3585725c8975c45912a2e90ce9f8d4,
     type: 3}
   fruitTable: {fileID: 2126265400}
   gameLevelText: {fileID: 1664883031}

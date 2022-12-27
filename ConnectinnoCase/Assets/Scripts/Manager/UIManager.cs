@@ -10,37 +10,40 @@ public class UIManager : MonoBehaviour
     [Header("Home Panel")] public GameObject homePanel;
 
     [Header("In Game Panel")] public List<Sprite> fruitSprites;
-    public Image fruitSpriteObj;
+    public FruitSpriteController fruitSpriteObj;
     public RectTransform fruitTable;
     public TextMeshProUGUI gameLevelText;
 
 
-    private void Update()
+    private LevelManager levelManager;
+
+
+    private void Start()
     {
-      FruitTableControl();
+        levelManager = GameManager.Instance.levelManager;
+        FruitTableControl();
     }
 
     public void FruitTableControl()
     {
-        gameLevelText.text = "Level " + (GameManager.Instance.levelManager._levelCount +1);
+        gameLevelText.text = "Level " + (GameManager.Instance.levelManager._levelCount + 1);
 
 
-            var levelData = GameManager.Instance.levelData;
+        var levelData = GameManager.Instance.levelData;
         var levelCount = GameManager.Instance.levelManager._levelCount;
 
-        
+
         for (int a = 0; a < fruitSprites.Count; a++)
         {
             for (int i = 0; i < levelData.levelData[levelCount].WaveDatas.Count; i++)
             {
                 if (fruitSprites[a].name == levelData.levelData[levelCount].WaveDatas[i].fruitName.ToString())
                 {
-                    Image fruitSprite = Instantiate(fruitSpriteObj, fruitTable);
+                    FruitSpriteController fruitSprite = Instantiate(fruitSpriteObj, fruitTable);
 
-                    fruitSprite.sprite = fruitSprites[a];
-
-                    fruitSprite.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text =
-                        levelData.levelData[levelCount].WaveDatas[i].correctItemCount.ToString();
+                    fruitSprite.SetData(fruitSprites[a], levelData.levelData[levelCount].WaveDatas[i].correctItemCount,
+                        levelData.levelData[levelCount].WaveDatas[i].fruitName);
+                    levelManager.fruitCounts.Add(fruitSprite);
                 }
             }
         }

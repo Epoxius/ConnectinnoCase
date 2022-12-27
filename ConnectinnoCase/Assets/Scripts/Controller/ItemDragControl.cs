@@ -19,6 +19,7 @@ public class ItemDragControl : MonoBehaviour
     public bool isChoosen;
     public Rigidbody itemRb;
 
+    public FruitType fruitType;
 
     private void Update()
     {
@@ -47,8 +48,8 @@ public class ItemDragControl : MonoBehaviour
                 .OnComplete(
                     () =>
                     {
-                        
-                        correctCheckController.Check();
+                        correctCheckController.Check(fruitType);
+                        GameManager.Instance.levelManager.LevelControl(fruitType);
                         transform.DOScale(Vector3.one / 1.5f, 1);
                         itemRb.isKinematic = true;
                     });

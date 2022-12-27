@@ -15,9 +15,9 @@ MonoBehaviour:
   levelData:
   - WaveDatas:
     - fruitName: 4
-      correctItemCount: 1
+      correctItemCount: 3
     - fruitName: 3
-      correctItemCount: 1
+      correctItemCount: 4
   - WaveDatas:
     - fruitName: 0
       correctItemCount: 0
