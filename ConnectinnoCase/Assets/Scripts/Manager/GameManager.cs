@@ -8,8 +8,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; set; }
 
-    [Header("Game Stats")]
-    public  float timeRemaining = 60.0f;
+    [Header("Game Stats")] 
+    public float timeRemaining;
+    public int extraTimePrice;
+    public int extraTime;
     
     [Header("Manager")] public UIManager uIManager;
     public PoolManager poolManager;
@@ -66,17 +68,36 @@ public class GameManager : MonoBehaviour
         uIManager.homePanel.SetActive(true);
         uIManager.inGamePanel.SetActive(false);
         jsonController.gameData.levelCount++;
-        
+       
         if (jsonController.gameData.chestOpenCount < 3)
         {
             jsonController.gameData.chestOpenCount++;
         }
         jsonController.gameData.isNextLevel = true;
+        jsonController.SaveData();
 
     }
 
-    public void Lose()
+    public void RestartLevel()
     {
+        jsonController.gameData.isNextLevel = true;
+        jsonController.SaveData();
+        SceneManager.LoadScene(0);
+    }
+
+    public void AddTime()
+    {
+        if (jsonController.gameData.coinCount >= extraTimePrice)
+        {
+            timeRemaining += extraTime;
+            jsonController.gameData.coinCount  -= extraTimePrice;
+            uIManager.losePanel.SetActive(false);
+            isFail = false;
+            jsonController.SaveData();
+            uIManager.homeCointText.text =jsonController.gameData.coinCount.ToString();
+            uIManager.inGameCointText.text =jsonController.gameData.coinCount.ToString();
+
+        }
     }
 
     public void CheckSceneRestart()

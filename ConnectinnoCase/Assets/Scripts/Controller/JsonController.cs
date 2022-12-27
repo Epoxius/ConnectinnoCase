@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class JsonController : MonoBehaviour
 {
-      public GameData gameData = new (0,0,0,false);
+      public GameData gameData = new (0,3,0,false);
 
     
     public void SaveData()

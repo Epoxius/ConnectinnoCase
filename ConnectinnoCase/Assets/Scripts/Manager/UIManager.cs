@@ -9,18 +9,19 @@ public class UIManager : MonoBehaviour
 {
     [Header("Home Panel")] 
     public GameObject homePanel;
+    public TextMeshProUGUI homeCointText;
 
-    [Header("In Game Panel")]
+    [Header("In Game Panel")] 
     public List<Sprite> fruitSprites;
     public FruitSpriteController fruitSpriteObj;
     public RectTransform fruitTable;
     public TextMeshProUGUI gameLevelText;
     public GameObject inGamePanel;
     public GameObject winPanel;
-    public GameObject losePanel; 
-    
+    public GameObject losePanel;
+
     public TextMeshProUGUI timerText;
-    
+    public TextMeshProUGUI inGameCointText;
 
 
     private LevelManager levelManager;
@@ -30,14 +31,13 @@ public class UIManager : MonoBehaviour
     {
         levelManager = GameManager.Instance.levelManager;
         FruitTableControl();
+        homeCointText.text = GameManager.Instance.jsonController.gameData.coinCount.ToString();
+        inGameCointText.text = GameManager.Instance.jsonController.gameData.coinCount.ToString();
     }
 
     private void Update()
     {
-        
-            CountDownControl();
-        
-       
+        CountDownControl();
     }
 
     public void FruitTableControl()
@@ -80,9 +80,11 @@ public class UIManager : MonoBehaviour
             gm.timeRemaining -= Time.deltaTime;
             timerText.text = Mathf.Floor(gm.timeRemaining).ToString();
         }
-        if (gm.timeRemaining <= 0 )
+
+        if (gm.timeRemaining < 1)
         {
             gm.isFail = true;
+            losePanel.SetActive(true);
         }
     }
 }
