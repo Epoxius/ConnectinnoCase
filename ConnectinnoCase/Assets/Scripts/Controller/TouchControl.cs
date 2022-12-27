@@ -37,12 +37,12 @@ public class TouchControl : MonoBehaviour
                lastMouseDownTime = Time.time;
                
             } else {
-               Debug.Log ("nopz");
+           //    Debug.Log ("nopz");
             }
          } else {
-            Debug.Log("No hit");
+          //  Debug.Log("No hit");
          }
-         Debug.Log("Mouse is down");
+         //Debug.Log("Mouse is down");
       } 
    }
 }

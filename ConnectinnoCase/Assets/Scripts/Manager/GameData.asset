@@ -14,20 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelData:
   - WaveDatas:
-    - fruitName: 0
-      correctItemCount: 3
-      otherItemCount: 0
+    - fruitName: 4
+      correctItemCount: 1
     - fruitName: 3
-      correctItemCount: 2
-      otherItemCount: 0
+      correctItemCount: 1
   - WaveDatas:
     - fruitName: 0
       correctItemCount: 0
-      otherItemCount: 0
     - fruitName: 0
       correctItemCount: 0
-      otherItemCount: 0
   - WaveDatas:
     - fruitName: 0
       correctItemCount: 0
-      otherItemCount: 0

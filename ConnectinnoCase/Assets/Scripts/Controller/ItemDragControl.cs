@@ -14,7 +14,9 @@ public class ItemDragControl : MonoBehaviour
     [Header("Double Click Ref")] float doubleClickTime = 0.5f;
     float lastMouseDownTime = 0;
 
-    [Header("State Ref")] public bool isChoosen;
+    [Header("State Ref")] 
+    public CorrectCheckController correctCheckController;
+    public bool isChoosen;
     public Rigidbody itemRb;
 
 
@@ -45,6 +47,8 @@ public class ItemDragControl : MonoBehaviour
                 .OnComplete(
                     () =>
                     {
+                        
+                        correctCheckController.Check();
                         transform.DOScale(Vector3.one / 1.5f, 1);
                         itemRb.isKinematic = true;
                     });

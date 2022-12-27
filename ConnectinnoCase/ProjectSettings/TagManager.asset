@@ -6,6 +6,13 @@ TagManager:
   tags:
   - Fruit
   - Pan
+  - apple
+  - banana
+  - grape
+  - cake
+  - cherry
+  - pumpkin
+  - watermelon
   layers:
   - Default
   - TransparentFX

@@ -21,7 +21,7 @@ public class WaveData
     
     public FruitType fruitName;
     public int correctItemCount;
-    public int otherItemCount;
+    
 }
 public enum FruitType
 {

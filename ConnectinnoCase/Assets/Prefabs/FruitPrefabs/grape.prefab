@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 1651042693128581885}
   - component: {fileID: -193132239569592703}
   - component: {fileID: 1175232045871074231}
+  - component: {fileID: 6922674416558086330}
   m_Layer: 0
   m_Name: grape
-  m_TagString: Fruit
+  m_TagString: grape
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -114,6 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 127a63eeb34444343ae615fa8ba5beb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  correctCheckController: {fileID: 6922674416558086330}
   isChoosen: 0
   itemRb: {fileID: 1651042693128581885}
 --- !u!64 &1175232045871074231
@@ -130,3 +132,16 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 7b5ec5c57af98c349b22ae545a4a9fcd, type: 3}
+--- !u!114 &6922674416558086330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2380152700134568781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 218d77dd43aaa104b8c9db367480d9b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCorrect: 0
