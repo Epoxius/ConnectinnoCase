@@ -19,7 +19,7 @@ public class SpawnManager : MonoBehaviour
     public void SpawnCorrectItem()
     {
         var levelData = GameManager.Instance.levelData;
-        var levelCount = GameManager.Instance.levelManager._levelCount;
+        var levelCount = GameManager.Instance.jsonController.gameData.levelCount;
 
 
         var poolManager = GameManager.Instance.poolManager;

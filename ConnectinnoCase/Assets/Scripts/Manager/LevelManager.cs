@@ -13,6 +13,7 @@ public class LevelManager : MonoBehaviour
     public List<FruitSpriteController> fruitCounts;
 
 
+    
     public void LevelControl(FruitType type)
     {
         for (int i = 0; i < fruitCounts.Count; i++)
@@ -34,9 +35,12 @@ public class LevelManager : MonoBehaviour
 
         if (finishCountControl >= fruitCounts.Count)
         {
-            Debug.LogError("Level Finish");
+            GameManager.Instance.jsonController.SaveData();
+            GameManager.Instance.uIManager.WinUI();
         }
     }
+
+   
 
 
 }
