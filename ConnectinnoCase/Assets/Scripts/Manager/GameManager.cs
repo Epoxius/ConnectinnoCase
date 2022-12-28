@@ -13,12 +13,14 @@ public class GameManager : MonoBehaviour
     public int extraTimePrice;
     public int extraTime;
     
-    [Header("Manager")] public UIManager uIManager;
+    [Header("Manager")]
+    public UIManager uIManager;
     public PoolManager poolManager;
     public LevelManager levelManager;
     public LevelData levelData;
     public SpawnManager spawnManager;
     public JsonController jsonController;
+    public ChestController chestController;
 
     [Header("Transforms")] public Transform pan;
 
@@ -53,6 +55,7 @@ public class GameManager : MonoBehaviour
     public void Win()
     {
         
+        
         jsonController.gameData.levelCount++;
         if (jsonController.gameData.chestOpenCount < 3)
         {
@@ -74,6 +77,8 @@ public class GameManager : MonoBehaviour
             jsonController.gameData.chestOpenCount++;
         }
         jsonController.gameData.isNextLevel = true;
+        chestController.ChestOpenCheck();
+        uIManager.homeLevelText.text = "Level " + (GameManager.Instance.jsonController.gameData.levelCount + 1);
         jsonController.SaveData();
 
     }

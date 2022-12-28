@@ -15,16 +15,111 @@ MonoBehaviour:
   levelData:
   - WaveDatas:
     - fruitName: 4
-      correctItemCount: 1
+      correctItemCount: 3
     - fruitName: 3
-      correctItemCount: 1
+      correctItemCount: 3
   - WaveDatas:
     - fruitName: 0
-      correctItemCount: 1
+      correctItemCount: 3
     - fruitName: 1
-      correctItemCount: 1
+      correctItemCount: 3
   - WaveDatas:
-    - fruitName: 2
-      correctItemCount: 1
-    - fruitName: 6
-      correctItemCount: 1
+    - fruitName: 1
+      correctItemCount: 3
+    - fruitName: 5
+      correctItemCount: 3
+  - WaveDatas:
+    - fruitName: 1
+      correctItemCount: 3
+    - fruitName: 5
+      correctItemCount: 3
+  - WaveDatas:
+    - fruitName: 1
+      correctItemCount: 3
+    - fruitName: 5
+      correctItemCount: 3
+  - WaveDatas:
+    - fruitName: 1
+      correctItemCount: 3
+    - fruitName: 5
+      correctItemCount: 3
+  - WaveDatas:
+    - fruitName: 1
+      correctItemCount: 3
+    - fruitName: 5
+      correctItemCount: 3
+  - WaveDatas:
+    - fruitName: 1
+      correctItemCount: 3
+    - fruitName: 5
+      correctItemCount: 3
+  - WaveDatas:
+    - fruitName: 1
+      correctItemCount: 3
+    - fruitName: 5
+      correctItemCount: 3
+  - WaveDatas:
+    - fruitName: 1
+      correctItemCount: 3
+    - fruitName: 5
+      correctItemCount: 3
+  - WaveDatas:
+    - fruitName: 1
+      correctItemCount: 3
+    - fruitName: 5
+      correctItemCount: 3
+  - WaveDatas:
+    - fruitName: 1
+      correctItemCount: 3
+    - fruitName: 5
+      correctItemCount: 3
+  - WaveDatas:
+    - fruitName: 1
+      correctItemCount: 3
+    - fruitName: 5
+      correctItemCount: 3
+  - WaveDatas:
+    - fruitName: 1
+      correctItemCount: 3
+    - fruitName: 5
+      correctItemCount: 3
+  - WaveDatas:
+    - fruitName: 1
+      correctItemCount: 3
+    - fruitName: 5
+      correctItemCount: 3
+  - WaveDatas:
+    - fruitName: 1
+      correctItemCount: 3
+    - fruitName: 5
+      correctItemCount: 3
+  - WaveDatas:
+    - fruitName: 1
+      correctItemCount: 3
+    - fruitName: 5
+      correctItemCount: 3
+  - WaveDatas:
+    - fruitName: 1
+      correctItemCount: 3
+    - fruitName: 5
+      correctItemCount: 3
+  - WaveDatas:
+    - fruitName: 1
+      correctItemCount: 3
+    - fruitName: 5
+      correctItemCount: 3
+  - WaveDatas:
+    - fruitName: 1
+      correctItemCount: 3
+    - fruitName: 5
+      correctItemCount: 3
+  - WaveDatas:
+    - fruitName: 1
+      correctItemCount: 3
+    - fruitName: 5
+      correctItemCount: 3
+  - WaveDatas:
+    - fruitName: 1
+      correctItemCount: 3
+    - fruitName: 5
+      correctItemCount: 3

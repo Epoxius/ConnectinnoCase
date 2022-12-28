@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class FruitSpriteController : MonoBehaviour
 {
     [SerializeField] private Image fruitSprite;
-    [SerializeField] private int fruitCount;
+    public  int fruitCount;
     [SerializeField] private TextMeshProUGUI countText;
 
 
@@ -32,4 +32,6 @@ public class FruitSpriteController : MonoBehaviour
     {
         return fruitCount == 0;
     }
+    
+  
 }

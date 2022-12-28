@@ -14,16 +14,15 @@ public class ItemDragControl : MonoBehaviour
     [Header("Double Click Ref")] float doubleClickTime = 0.5f;
     float lastMouseDownTime = 0;
 
-    [Header("State Ref")] 
-    public CorrectCheckController correctCheckController;
+    [Header("State Ref")] public CorrectCheckController correctCheckController;
     public bool isChoosen;
-    public Rigidbody itemRb;
+
 
     public FruitType fruitType;
 
     private void Update()
     {
-        PosClamp();
+        //  PosClamp();
     }
 
     #region DragControl
@@ -40,8 +39,8 @@ public class ItemDragControl : MonoBehaviour
         if (Time.time - lastMouseDownTime <= doubleClickTime)
         {
             isChoosen = true;
-           
-            var pan = GameManager.Instance.pan;
+
+
             transform.DOJump(
                     GetRandomPositionOnPan(), 1, 1,
                     1)
@@ -50,8 +49,6 @@ public class ItemDragControl : MonoBehaviour
                     {
                         correctCheckController.Check(fruitType);
                         GameManager.Instance.levelManager.LevelControl(fruitType);
-                        transform.DOScale(Vector3.one / 1.5f, 1);
-                        itemRb.isKinematic = true;
                     });
         }
 
@@ -74,7 +71,7 @@ public class ItemDragControl : MonoBehaviour
 
     void OnMouseDrag()
     {
-        transform.position = GetMouseAsWorldPoint() + mOffset + new Vector3(0, .5f, 0);
+        transform.position = GetMouseAsWorldPoint() + mOffset;
     }
 
     public void PosClamp()
@@ -84,19 +81,18 @@ public class ItemDragControl : MonoBehaviour
             transform.position = new Vector3(transform.position.x, transform.position.y,
                 Mathf.Clamp(transform.position.z, -1.3f, 3));
         }
-       
     }
-    
+
     Vector3 GetRandomPositionOnPan()
     {
         var pan = GameManager.Instance.pan;
-       
+
         float minX = pan.position.x - pan.localScale.x / 4;
         float maxX = pan.position.x + pan.localScale.x / 4;
         float minZ = pan.position.z - pan.localScale.z / 2.5f;
         float maxZ = pan.position.z + pan.localScale.z / 2.5f;
 
-     
+
         float x = Random.Range(minX, maxX);
         float y = pan.position.y + 1;
         float z = Random.Range(minZ, maxZ);

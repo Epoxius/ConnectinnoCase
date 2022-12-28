@@ -5,6 +5,10 @@ using UnityEngine.EventSystems;
 
 public class PanelSwiper : MonoBehaviour, IDragHandler, IEndDragHandler{
     private Vector3 panelLocation;
+
+    public Vector3 homeLocation;
+    public Vector3 settingLocation;
+    public Vector3 shopLocation;
     public float percentThreshold = 0.2f;
     public float easing = 0.5f;
     public int totalPages = 1;
@@ -43,4 +47,7 @@ public class PanelSwiper : MonoBehaviour, IDragHandler, IEndDragHandler{
             yield return null;
         }
     }
+    
+
+
 }

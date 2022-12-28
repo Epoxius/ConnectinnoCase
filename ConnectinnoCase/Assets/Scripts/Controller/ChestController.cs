@@ -7,12 +7,13 @@ using UnityEngine.UI;
 
 public class ChestController : MonoBehaviour
 {
+    public int chestReward;
     public Animator chestAnim;
     public Image chestImage;
 
     public Sprite chestOpen;
     public Sprite chestClose;
-    
+
 
     public bool isOpen;
     private void Start()
@@ -36,11 +37,19 @@ public class ChestController : MonoBehaviour
         }
     }
 
-    private void OnClick()
+    public void OnClick()
     {
+        var gm = GameManager.Instance;
         if (isOpen)
         {
-            
+            gm.jsonController.gameData.coinCount += chestReward;
+            gm.uIManager.homeCointText.text = GameManager.Instance.jsonController.gameData.coinCount.ToString();
+            gm.uIManager.inGameCointText.text = GameManager.Instance.jsonController.gameData.coinCount.ToString();
+            isOpen = false;
+            chestAnim.SetBool("Chest",false);
+            chestImage.sprite = chestClose;
+            gm.jsonController.gameData.chestOpenCount = 0;
+            gm.jsonController.SaveData();
         }
     }
 }

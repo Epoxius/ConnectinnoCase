@@ -117,7 +117,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   correctCheckController: {fileID: 6876393683557784261}
   isChoosen: 0
-  itemRb: {fileID: 192418746940456078}
   fruitType: 1
 --- !u!64 &4012440545129654925
 MeshCollider:
@@ -146,3 +145,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCorrect: 0
+  itemRb: {fileID: 192418746940456078}

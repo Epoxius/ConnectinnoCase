@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     [Header("Home Panel")] 
     public GameObject homePanel;
     public TextMeshProUGUI homeCointText;
+    public TextMeshProUGUI homeLevelText;
 
     [Header("In Game Panel")] 
     public List<Sprite> fruitSprites;
@@ -33,6 +34,7 @@ public class UIManager : MonoBehaviour
         FruitTableControl();
         homeCointText.text = GameManager.Instance.jsonController.gameData.coinCount.ToString();
         inGameCointText.text = GameManager.Instance.jsonController.gameData.coinCount.ToString();
+        homeLevelText.text = "Level " + (GameManager.Instance.jsonController.gameData.levelCount + 1);
     }
 
     private void Update()
