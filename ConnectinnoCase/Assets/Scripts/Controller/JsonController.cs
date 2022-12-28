@@ -1,39 +1,29 @@
-
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Newtonsoft.Json;
 using UnityEngine;
 
 public class JsonController : MonoBehaviour
 {
-      public GameData gameData = new (0,3,0,false);
+    public GameData gameData;
 
-    
+    public string gameDataName = "gameData.json";
     public void SaveData()
     {
-        
-        
-        string jsonString = JsonUtility.ToJson(gameData);
-        File.WriteAllText(Application.dataPath+"/Saves/gameDatasJson.json",jsonString);
-        Debug.Log(jsonString);
-       
+        PersistentData.WriteText(gameDataName,JsonConvert.SerializeObject(gameData));
     }
 
     public void LoadData()
     {
-        string path = Application.dataPath + "/Saves/gameDatasJson.json";
-        if (File.Exists(path))
+        string path = PersistentData.ReadText(gameDataName);
+        if (string.IsNullOrEmpty(path) == false)
         {
-            string takeJson = File.ReadAllText(path);
-            gameData = JsonUtility.FromJson<GameData>(takeJson);
-            Debug.Log(takeJson);
+            gameData = JsonConvert.DeserializeObject<GameData>(path);
         }
         else
         {
-            Debug.Log("No Data");   
+            gameData = new GameData(0, 3, 0, false);
         }
-        
     }
-
-
 }

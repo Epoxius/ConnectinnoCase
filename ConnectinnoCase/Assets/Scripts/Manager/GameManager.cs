@@ -54,9 +54,13 @@ public class GameManager : MonoBehaviour
 
     public void Win()
     {
-        
-        
+
         jsonController.gameData.levelCount++;
+        if (jsonController.gameData.levelCount >= levelData.levelData.Count)
+        {
+            jsonController.gameData.levelCount = 0;
+        }
+
         if (jsonController.gameData.chestOpenCount < 3)
         {
             jsonController.gameData.chestOpenCount++;

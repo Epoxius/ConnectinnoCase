@@ -87,10 +87,10 @@ public class ItemDragControl : MonoBehaviour
     {
         var pan = GameManager.Instance.pan;
 
-        float minX = pan.position.x - pan.localScale.x / 4;
-        float maxX = pan.position.x + pan.localScale.x / 4;
-        float minZ = pan.position.z - pan.localScale.z / 2.5f;
-        float maxZ = pan.position.z + pan.localScale.z / 2.5f;
+        float minX = pan.position.x - pan.localScale.x / 6;
+        float maxX = pan.position.x + pan.localScale.x / 6;
+        float minZ = pan.position.z - pan.localScale.z / 6;
+        float maxZ = pan.position.z + pan.localScale.z / 6;
 
 
         float x = Random.Range(minX, maxX);
