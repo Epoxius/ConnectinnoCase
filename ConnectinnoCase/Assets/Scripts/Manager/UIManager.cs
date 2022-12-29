@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -11,6 +12,8 @@ public class UIManager : MonoBehaviour
     public GameObject homePanel;
     public TextMeshProUGUI homeCointText;
     public TextMeshProUGUI homeLevelText;
+    public RectTransform rewardChest;
+    public RectTransform rewardChestHomeTransform;
 
     [Header("In Game Panel")] 
     public List<Sprite> fruitSprites;
@@ -25,6 +28,11 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI inGameCointText;
 
 
+    [Header("Settings Panel")]
+    public Slider soundSlider;
+    public Slider vibrationSlider;
+    
+    
     private LevelManager levelManager;
 
 
@@ -85,8 +93,10 @@ public class UIManager : MonoBehaviour
 
         if (gm.timeRemaining < 1)
         {
+           
             gm.isFail = true;
             losePanel.SetActive(true);
         }
+        
     }
 }

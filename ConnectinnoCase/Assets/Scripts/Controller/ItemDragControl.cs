@@ -1,11 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
-
+using Lofelt.NiceVibrations;
 public class ItemDragControl : MonoBehaviour
 {
     [Header("Drag Ref")] private Vector3 mOffset;
@@ -17,13 +18,8 @@ public class ItemDragControl : MonoBehaviour
     [Header("State Ref")] public CorrectCheckController correctCheckController;
     public bool isChoosen;
 
-
     public FruitType fruitType;
 
-    private void Update()
-    {
-        //  PosClamp();
-    }
 
     #region DragControl
 
@@ -32,24 +28,44 @@ public class ItemDragControl : MonoBehaviour
     {
         mZCoord = Camera.main.WorldToScreenPoint(
             gameObject.transform.position).z;
-
-
+        
         mOffset = gameObject.transform.position - GetMouseAsWorldPoint();
+        
+        HapticPatterns.PlayPreset(HapticPatterns.PresetType.Selection);
+        DoubleClick();
+    }
 
+    public void DoubleClick()
+    {
         if (Time.time - lastMouseDownTime <= doubleClickTime)
         {
             isChoosen = true;
 
 
+            if (GameManager.Instance.isVibrationOn)
+            {
+                HapticPatterns.PlayPreset(HapticPatterns.PresetType.Selection);
+            }
+           
+            GameManager.Instance.soundManager.PlaySound(3);
             transform.DOJump(
-                    GetRandomPositionOnPan(), 1, 1,
+                    GetRandomPositionOnPan(), 2, 1,
                     1)
                 .OnComplete(
                     () =>
                     {
-                        correctCheckController.Check(fruitType);
-                        GameManager.Instance.levelManager.LevelControl(fruitType);
+                        correctCheckController.CheckisDoneControl();
+                        correctCheckController.CheckIn(fruitType);
+                        GameManager.Instance.levelManager.LevelControl(fruitType,correctCheckController.isDone);
                     });
+        }
+        else
+        {
+            if (GameManager.Instance.isVibrationOn)
+            {
+                HapticPatterns.PlayPreset(HapticPatterns.PresetType.Selection);
+            }
+            GameManager.Instance.soundManager.PlaySound(2); 
         }
 
         lastMouseDownTime = Time.time;
@@ -83,14 +99,17 @@ public class ItemDragControl : MonoBehaviour
         }
     }
 
+  
+
+    #endregion
     Vector3 GetRandomPositionOnPan()
     {
         var pan = GameManager.Instance.pan;
 
-        float minX = pan.position.x - pan.localScale.x / 6;
-        float maxX = pan.position.x + pan.localScale.x / 6;
-        float minZ = pan.position.z - pan.localScale.z / 6;
-        float maxZ = pan.position.z + pan.localScale.z / 6;
+        float minX = pan.position.x - pan.localScale.x / 4;
+        float maxX = pan.position.x + pan.localScale.x / 4;
+        float minZ = pan.position.z - pan.localScale.z / 4;
+        float maxZ = pan.position.z + pan.localScale.z / 4;
 
 
         float x = Random.Range(minX, maxX);
@@ -98,6 +117,5 @@ public class ItemDragControl : MonoBehaviour
         float z = Random.Range(minZ, maxZ);
         return new Vector3(x, y, z);
     }
-
-    #endregion
+   
 }

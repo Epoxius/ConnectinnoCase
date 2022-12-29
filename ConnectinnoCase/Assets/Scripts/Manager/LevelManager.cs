@@ -14,11 +14,11 @@ public class LevelManager : MonoBehaviour
 
 
     
-    public void LevelControl(FruitType type)
+    public void LevelControl(FruitType type,bool isDone)
     {
         for (int i = 0; i < fruitCounts.Count; i++)
         {
-            if (fruitCounts[i].fruitType == type)
+            if (fruitCounts[i].fruitType == type && !isDone)
             {
                 fruitCounts[i].FruitControl();
             }
@@ -35,11 +35,26 @@ public class LevelManager : MonoBehaviour
 
         if (finishCountControl >= fruitCounts.Count)
         {
+          
+           
+            SaveChestProgress();
             GameManager.Instance.jsonController.SaveData();
             GameManager.Instance.uIManager.WinUI();
         }
     }
 
+    public void SaveChestProgress()
+    {
+        var gm = GameManager.Instance;
+        gm.uIManager.rewardChest.SetParent(gm.uIManager.winPanel.transform);
+       
+        if (gm.jsonController.gameData.chestOpenCount < 3)
+        {
+            gm.jsonController.gameData.chestOpenCount++;
+            gm.chestController.chestImage.fillAmount  += .3f;
+            gm.jsonController.gameData.chestFill += gm.chestController.chestImage.fillAmount;
+        }
+    }
    
 
 

@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public UIManager uIManager;
     public PoolManager poolManager;
     public LevelManager levelManager;
+    public SoundManager soundManager;
     public LevelData levelData;
     public SpawnManager spawnManager;
     public JsonController jsonController;
@@ -24,7 +25,9 @@ public class GameManager : MonoBehaviour
 
     [Header("Transforms")] public Transform pan;
 
-    [Header("Booleans")]
+    [Header("Booleans")] 
+    public bool isVibrationOn;
+    [Space]
     public bool isStart;
     public bool isFinish;
     public bool isFail;
@@ -32,6 +35,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        
         Instance = this;
         jsonController.LoadData();
     }
@@ -45,6 +49,7 @@ public class GameManager : MonoBehaviour
 
     public void GameStart()
     {
+        uIManager.rewardChest.parent = null;
         jsonController.gameData.isNextLevel = true;
         jsonController.SaveData();
         SceneManager.LoadScene(0);
@@ -54,17 +59,14 @@ public class GameManager : MonoBehaviour
 
     public void Win()
     {
-
+       
         jsonController.gameData.levelCount++;
         if (jsonController.gameData.levelCount >= levelData.levelData.Count)
         {
             jsonController.gameData.levelCount = 0;
         }
 
-        if (jsonController.gameData.chestOpenCount < 3)
-        {
-            jsonController.gameData.chestOpenCount++;
-        }
+       
         jsonController.gameData.isNextLevel = true;
         jsonController.SaveData();
         SceneManager.LoadScene(0);
@@ -72,14 +74,15 @@ public class GameManager : MonoBehaviour
 
     public void MainMenu()
     {
+       
+        uIManager.rewardChest.parent = null;
+        uIManager.rewardChest.SetParent(uIManager.homePanel.transform);
+        uIManager.rewardChest.transform.position = uIManager.rewardChestHomeTransform.position;
         uIManager.homePanel.SetActive(true);
         uIManager.inGamePanel.SetActive(false);
         jsonController.gameData.levelCount++;
        
-        if (jsonController.gameData.chestOpenCount < 3)
-        {
-            jsonController.gameData.chestOpenCount++;
-        }
+       
         jsonController.gameData.isNextLevel = true;
         chestController.ChestOpenCheck();
         uIManager.homeLevelText.text = "Level " + (GameManager.Instance.jsonController.gameData.levelCount + 1);
@@ -89,6 +92,7 @@ public class GameManager : MonoBehaviour
 
     public void RestartLevel()
     {
+       
         jsonController.gameData.isNextLevel = true;
         jsonController.SaveData();
         SceneManager.LoadScene(0);
@@ -98,6 +102,7 @@ public class GameManager : MonoBehaviour
     {
         if (jsonController.gameData.coinCount >= extraTimePrice)
         {
+            
             timeRemaining += extraTime;
             jsonController.gameData.coinCount  -= extraTimePrice;
             uIManager.losePanel.SetActive(false);
@@ -113,6 +118,7 @@ public class GameManager : MonoBehaviour
     {
         if (jsonController.gameData.isNextLevel)
         {
+           
             jsonController.gameData.isNextLevel = false;
             isStart = true;
             uIManager.homePanel.SetActive(false);
@@ -123,5 +129,12 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion
-  
+
+    
+
+    private void OnApplicationQuit()
+    {
+        jsonController.gameData.isNextLevel = false;
+        jsonController.SaveData();
+    }
 }
