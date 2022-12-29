@@ -23,9 +23,6 @@ MonoBehaviour:
       correctItemCount: 3
     - fruitName: 1
       correctItemCount: 3
-  - WaveDatas:
-    - fruitName: 1
-      correctItemCount: 3
     - fruitName: 5
       correctItemCount: 3
   - WaveDatas:
@@ -33,33 +30,47 @@ MonoBehaviour:
       correctItemCount: 3
     - fruitName: 5
       correctItemCount: 3
+    - fruitName: 4
+      correctItemCount: 3
+  - WaveDatas:
+    - fruitName: 3
+      correctItemCount: 3
+    - fruitName: 2
+      correctItemCount: 3
+  - WaveDatas:
+    - fruitName: 6
+      correctItemCount: 3
+    - fruitName: 0
+      correctItemCount: 3
+    - fruitName: 1
+      correctItemCount: 3
+  - WaveDatas:
+    - fruitName: 2
+      correctItemCount: 3
+    - fruitName: 4
+      correctItemCount: 3
+  - WaveDatas:
+    - fruitName: 5
+      correctItemCount: 3
+    - fruitName: 0
+      correctItemCount: 3
+  - WaveDatas:
+    - fruitName: 1
+      correctItemCount: 3
+    - fruitName: 6
+      correctItemCount: 3
+  - WaveDatas:
+    - fruitName: 1
+      correctItemCount: 3
+    - fruitName: 2
+      correctItemCount: 3
   - WaveDatas:
     - fruitName: 1
       correctItemCount: 3
     - fruitName: 5
       correctItemCount: 3
   - WaveDatas:
-    - fruitName: 1
+    - fruitName: 4
       correctItemCount: 3
-    - fruitName: 5
-      correctItemCount: 3
-  - WaveDatas:
-    - fruitName: 1
-      correctItemCount: 3
-    - fruitName: 5
-      correctItemCount: 3
-  - WaveDatas:
-    - fruitName: 1
-      correctItemCount: 3
-    - fruitName: 5
-      correctItemCount: 3
-  - WaveDatas:
-    - fruitName: 1
-      correctItemCount: 3
-    - fruitName: 5
-      correctItemCount: 3
-  - WaveDatas:
-    - fruitName: 1
-      correctItemCount: 3
-    - fruitName: 5
+    - fruitName: 6
       correctItemCount: 3
